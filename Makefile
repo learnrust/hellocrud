@@ -6,9 +6,8 @@ NEWRELEASE	= $(shell echo $$(($(RELEASE) + 1)))
 PROJECT_NAME    = hellocrud
 TOPDIR = $(shell pwd)
 MANPAGES =
-#A2PS2S1C  = /usr/bin/enscript -H1 --highlight-bar-gray=08 -fCourier8 -Ebash
-A2PS2S1C  = /usr/bin/enscript -H1 --highlight-bar-gray=08 -fCourier8 -Ebash  --non-printable-format=space
-#A2PS2S1C  = /usr/bin/enscript -H1 --highlight-bar-gray=08 -fconsolars7 -Ebash
+MACPATH=/usr/local/bin
+A2PS2S1C  = ${MACPATH}/enscript -H1 --highlight-bar-gray=08 -fCourier8 -Ebash  --non-printable-format=space
 A2PSTMP   = ./tmp
 DOCS      = ./docs
 
@@ -44,14 +43,13 @@ clean_hardest: clean_rpms
 
 
 #Ref: https://stackoverflow.com/questions/1490949/how-to-write-loop-in-a-makefile
-# MANIFEST  
-SRC1= README.md Makefile Cargo.toml myapp_lightweight_service-dir-layout.txt
-SRC2= src/app.rs src/bin/main.rs  src/controllers/guide.rs  src/controllers/home2.rs  src/controllers/home.rs  src/controllers/mod.rs  src/lib.rs  src/views/home.rs  src/views/mod.rs
-SRC3= tests/requests/guide.rs  tests/requests/home2.rs  tests/requests/home.rs  tests/requests/mod.rs  tests/requests/snapshots/can_get_home2@home2_request.snap  tests/requests/snapshots/home2_request.snap tests/requests/snapshots/can_get_home@home_request.snap
-#SRC2= manage.py profiles_projects-dir-layout.txt
+# Adding *.rs need to be conveted into pdf
+SRC1= README.md Makefile Cargo.toml hellocrud-dir-layout.txt
+SRC2= src/classes.rs src/functions.rs src/hello.rs src/main.rs src/test.rs
+SRC3= 
 
-tmpdir:
-	mkdir -p ${A2PSTMP}/src/bin ${A2PSTMP}/src/controllers ${A2PSTMP}/src/views ${A2PSTMP}/tests/requests/snapshots
+pdfdir:
+	mkdir -p ${A2PSTMP}/src $(DOCS)/src
 cleantmp:
 	rm -f ${A2PSTMP}/*.ps ${A2PSTMP}/*.pdf	
 .ps: cleantmp
@@ -59,6 +57,12 @@ cleantmp:
 	$(foreach var, $(SRC2), ${A2PS2S1C}  --output=${A2PSTMP}/$(var).ps $(var) ;)
 	$(foreach var, $(SRC3), ${A2PS2S1C}  --output=${A2PSTMP}/$(var).ps $(var) ;)
 	touch .ps
+# No VM needed since MacOS is Unix based.
+macpdf: .pdf
+	touch .pdf
+	rm -f ${DOCS)}/*.pdf
+	find  ${A2PSTMP}/ -type f -name *.pdf -exec cp {}  ${DOCS}/  \;
+	ls -lrt  ${DOCS}/*.pdf
 
 allpdf: .pdf
 	touch .pdf
@@ -75,14 +79,8 @@ pdf: .pdf
 	$(foreach var, $(SRC1), (cd ${A2PSTMP};ps2pdf $(var).ps $(var).pdf);)
 	$(foreach var, $(SRC2), (cd ${A2PSTMP};ps2pdf $(var).ps $(var).pdf);)
 	$(foreach var, $(SRC3), (cd ${A2PSTMP};ps2pdf $(var).ps $(var).pdf);)
-	rm -f ${A2PSTMP}/*.ps
-	cp ${A2PSTMP}/*.pdf  ${DOCS}/
-	rsync -azpv ${A2PSTMP}/src/*    ${DOCS}/src
-	rsync -azpv ${A2PSTMP}/tests/*  ${DOCS}/tests
+	rsync -azpv ${A2PSTMP}/*    ${DOCS}/
 	find ${DOCS}/src/ -type f -name "*.ps" -exec rm -f {} \;
-	find ${DOCS}/src/ -type f
-	find ${DOCS}/tests/ -type f -name "*.ps" -exec rm -f {} \;
-	find ${DOCS}/tests/ -type f 
 	touch .pdf
 tree: clean
 	tree -L 4 > ${PROJECT_NAME}-dir-layout.txt

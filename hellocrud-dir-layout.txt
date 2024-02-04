@@ -1,0 +1,14 @@
+.
+├── Cargo.toml
+├── LICENSE
+├── Makefile
+├── README.md
+├── hellocrud-dir-layout.txt
+└── src
+    ├── classes.rs
+    ├── functions.rs
+    ├── hello.rs
+    ├── main.rs
+    └── test.rs
+
+2 directories, 10 files
