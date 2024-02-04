@@ -3,29 +3,6 @@ mod classes;
 mod functions;
 mod hello;
 mod test;
-// https://docs.rs/clap/4.4.18/clap/struct.Command.html#method.help_template
-// Valid tags are:
-//
-// {name} - Display name for the (sub-)command.
-// {bin} - Binary name.(deprecated)
-// {version} - Version number.
-// {author} - Author information.
-// {author-with-newline} - Author followed by \n.
-// {author-section} - Author preceded and followed by \n.
-// {about} - General description (from Command::about or Command::long_about).
-// {about-with-newline} - About followed by \n.
-// {about-section} - About preceded and followed by ‘\n’.
-// {usage-heading} - Automatically generated usage heading.
-// {usage} - Automatically generated or given usage string.
-// {all-args} - Help for all arguments (options, flags, positional arguments, and subcommands) including titles.
-// {options} - Help for options.
-// {positionals} - Help for positional arguments.
-// {subcommands} - Help for subcommands.
-// {tab} - Standard tab sized used within clap
-// {after-help} - Help from Command::after_help or Command::after_long_help.
-// {before-help} - Help from Command::before_help or Command::before_long_help.
-// {usage-heading} [Options] [Commands] [Options]
-
 fn main() {
     let matches = command!() // requires clap `cargo` feature in Cargo.toml
         .help_template(
