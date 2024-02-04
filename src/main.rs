@@ -79,33 +79,33 @@ fn main() {
 
     hello::hello();
     let result = functions::add(5, 3);
-    println!("Sum: {}", result);
+    println!("functions::add return: {}", result);
 
     let result = functions::multiply(5, 3);
-    println!("Product: {}", result);
+    println!("functions::multiply return: {}", result);
 
     let rectangle = classes::Rectangle {
         width: 10.0,
         height: 5.0,
     };
+    println!(
+        "rectangle instance of classes::Rectangle return: width = {}, height = {}, area = {}",
+        rectangle.width,
+        rectangle.height,
+        rectangle.area()
+    );
     let circle = classes::Circle { radius: 3.0 };
+    println!(
+        "circle instance of classes::Circle return: radius = {}, circumference = {}",
+        circle.radius,
+        circle.circumference()
+    );
     let triangle = classes::Triangle {
         base: 8.0,
         height: 4.0,
     };
     println!(
-        "Rectangle: width = {}, height = {}, area = {}",
-        rectangle.width,
-        rectangle.height,
-        rectangle.area()
-    );
-    println!(
-        "Circle: radius = {}, circumference = {}",
-        circle.radius,
-        circle.circumference()
-    );
-    println!(
-        "Triangle: base = {}, height = {}, area = {}",
+        "triangle of classes::Triangle instance retured: base = {}, height = {}, area = {}",
         triangle.base,
         triangle.height,
         triangle.area()
