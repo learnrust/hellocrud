@@ -1,9 +1,26 @@
 .
+├── Cargo.lock
 ├── Cargo.toml
+├── docs
+│   ├── Cargo.toml.pdf
+│   ├── classes.rs.pdf
+│   ├── functions.rs.pdf
+│   ├── hellocrud-dir-layout.txt.pdf
+│   ├── hello.rs.pdf
+│   ├── main.rs.pdf
+│   ├── Makefile.pdf
+│   ├── README.md.pdf
+│   ├── src
+│   │   ├── classes.rs.pdf
+│   │   ├── functions.rs.pdf
+│   │   ├── hello.rs.pdf
+│   │   ├── main.rs.pdf
+│   │   └── test.rs.pdf
+│   └── test.rs.pdf
+├── hellocrud-dir-layout.txt
 ├── LICENSE
 ├── Makefile
 ├── README.md
-├── hellocrud-dir-layout.txt
 └── src
     ├── classes.rs
     ├── functions.rs
@@ -11,4 +28,4 @@
     ├── main.rs
     └── test.rs
 
-2 directories, 10 files
+3 directories, 25 files
