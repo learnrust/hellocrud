@@ -8,13 +8,13 @@ pub fn multiply(a: i32, b: i32) -> i32 {
     product
 }
 
-//pub fn greeting(name: String) -> String {
-//   let hello = String::from("Hello, ");
-//    let greeting = format!("{hello}{name}!");
-//    greeting
-//}
-//
-//pub fn hello_world() -> String {
-//    let greeting = String::from("Hello, World!");
-//    greeting
-//}
+pub fn greeting(name: String) -> String {
+    let hello = String::from("Hello, ");
+    let greeting = format!("{hello}{name}!");
+    greeting
+}
+
+pub fn hello_world() -> String {
+    let greeting = String::from("Hello, World!");
+    greeting
+}
