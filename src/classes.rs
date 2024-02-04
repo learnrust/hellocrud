@@ -7,7 +7,6 @@ impl Rectangle {
         self.width * self.height
     }
 }
-
 pub struct Circle {
     pub radius: f64,
 }
@@ -16,7 +15,6 @@ impl Circle {
         2.0 * std::f64::consts::PI * self.radius
     }
 }
-
 pub struct Triangle {
     pub base: f64,
     pub height: f64,
