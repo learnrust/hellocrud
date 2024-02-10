@@ -1,12 +1,12 @@
-fn greeting(name: String) -> String {
-    let hello = String::from("Hello, ");
-    let greeting = format!("{hello}{name}!");
-    greeting
-}
+//fn greeting(name: String) -> String {
+//    let hello = String::from("Hello, ");
+//    let greeting = format!("{hello}{name}!");
+//    greeting
+//}
 
-fn hello_world() -> String {
-    String::from("Hello, World!")
-}
+//fn hello_world() -> String {
+//    String::from("Hello, World!")
+//}
 
 // #[test]
 #[cfg(test)]
