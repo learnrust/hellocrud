@@ -18,3 +18,7 @@ pub fn hello_world() -> String {
     let greeting = String::from("Hello, World!");
     greeting
 }
+
+pub fn hello() {
+    println!("Hello, World!");
+}

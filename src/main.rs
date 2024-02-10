@@ -76,6 +76,7 @@ fn main() {
                 "'subcommand update' was used, argument is: {:?}",
                 sub_matches.get_one::<String>("UPDATE_VALUE")
             );
+            functions::hello();
             functions::greeting("Update operation".to_string());
             let rectangle = classes::Rectangle {
                 width: 10.0,
