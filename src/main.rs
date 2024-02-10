@@ -1,7 +1,6 @@
 use clap::{arg, command, Command};
 mod classes;
 mod functions;
-mod hello;
 mod test;
 fn main() {
     let matches = command!()
