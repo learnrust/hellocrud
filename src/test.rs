@@ -1,12 +1,14 @@
-//fn greeting(name: String) -> String {
-//    let hello = String::from("Hello, ");
-//    let greeting = format!("{hello}{name}!");
-//    greeting
-//}
+#[allow(unused)]
+fn greeting(name: String) -> String {
+    let hello = String::from("Hello, ");
+    let greeting = format!("{hello}{name}!");
+    greeting
+}
 
-//fn hello_world() -> String {
-//    String::from("Hello, World!")
-//}
+#[allow(unused)]
+fn hello_world() -> String {
+    String::from("Hello, World!")
+}
 
 // #[test]
 #[cfg(test)]
