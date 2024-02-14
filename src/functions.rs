@@ -19,6 +19,7 @@ pub fn hello_world() -> String {
     greeting
 }
 
+#[rustfmt::skip]
 pub fn hello() {
     println!("Hello, World!");
 }
