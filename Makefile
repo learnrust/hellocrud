@@ -86,8 +86,10 @@ tree: clean
 	tree -L 4 > ${PROJECT_NAME}-dir-layout.txt
 
 .PHONY: tests test2
+
 tests:
-	cargo test
+	cargo nextest run
+#	cargo test
 
 # enable makefile to accept argument after command
 #https://stackoverflow.com/questions/6273608/how-to-pass-argument-to-makefile-from-command-line
