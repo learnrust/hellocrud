@@ -28,4 +28,21 @@ mod hellocrud_tests {
         let result = greeting(name);
         assert_eq!(want, result);
     }
+
+    use testcontainers_modules::{postgres::Postgres, testcontainers::clients::Cli};
+
+    #[test]
+    fn connect_to_database() {
+        // startup the module
+        let docker = Cli::default();
+        let node = docker.run(Postgres::default());
+
+        // prepare connection string
+        let connection_string = &format!(
+            "postgres://postgres:postgres@127.0.0.1:{}/postgres",
+            node.get_host_port_ipv4(5432)
+        );
+
+        // the rest of your code goes here
+    }
 }

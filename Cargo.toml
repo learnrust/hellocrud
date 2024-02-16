@@ -13,4 +13,6 @@ repository = "https://github.com/learnrust/hellocrud"
 
 [dependencies]
 clap = { version = "4.4.18", default-features = false, features = ["std", "help","cargo","derive"] }
+testcontainers = "0.15.0"
+testcontainers-modules = { version = "0.3.2", features = ["postgres"] }
 
