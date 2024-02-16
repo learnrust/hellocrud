@@ -38,7 +38,7 @@ mod hellocrud_tests {
         let node = docker.run(Postgres::default());
 
         // prepare connection string
-        let connection_string = &format!(
+        let _connection_string = &format!(
             "postgres://postgres:postgres@127.0.0.1:{}/postgres",
             node.get_host_port_ipv4(5432)
         );
