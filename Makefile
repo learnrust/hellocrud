@@ -98,6 +98,10 @@ args = `arg="$(filter-out $@,$(MAKECMDGOALS))" && echo $${arg:-${1}}`
 %:
 	@:
 
+
+audit:
+	cargo audit
+
 status:
 	git status
 commit:
@@ -163,6 +167,7 @@ help:
 	@echo "Usage: make <target> <argument>"
 	@echo
 	@echo "Available targets are:"
+	@echo "  autdit               simple Cargo tool for detecting vulnerable Rust crates"
 	@echo "  pdf                 Generate selected files in pdf and copy into ./docs"
 	@echo "  allpdf              Generate selected files in pdf and copy into vmware hgfs"
 	@echo "  test                   build and test run"
