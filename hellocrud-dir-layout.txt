@@ -20,11 +20,11 @@
 ├── hellocrud-dir-layout.txt
 ├── LICENSE
 ├── Makefile
+├── Makefile.toml
 ├── README.md
 └── src
     ├── classes.rs
     ├── functions.rs
-    ├── hello.rs
     ├── main.rs
     └── test.rs
 
